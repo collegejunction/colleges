@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "collegejunction-bce6c",
+  "private_key_id": "6501e1735aa126fb8f779e02cb5989f5a175b9c5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDVTtjIJ5zbXa0H\ncfKMSzDL+5qXU2/frk9a4qUmPn2XbVZfMLCyeB3+CY3grRGfTspzm9HE0PlRxUJh\njV3DCmaxbzrft/nEuAjxKCpJRBWdlyDV3tAUwPR9LOhYBbXU/dvsSH/ALaXTyXYl\n8z1BcGtEDtdn2VZUeaBuqSNObbWKkxVsOWMSKmzegiZx70Q6x6dywNJjX1DjgJco\ng5LDcqmhRwKyQZXZfp0V4B6RbKlcm8WAVqKvv4M24GwEc+a5rezI2AATRphozTQD\nTk3OBp1cB7n1kIQI6iaEQYbBA5z71W/PcU4RmU/+ktEWuZLeuDQbgkHmm5y/mbn1\n20o5V9/zAgMBAAECggEADXGJ5oBFbOq04pwJdh+woTdOQVNLR1GsQ3iDtN4jYQCa\nScC/CI1BdqbeswmCHtEC0wTZbgoUBiJ+HuyfiCqG2Y/x3SYYyI+Nhx7860X7Ofj+\nyZV6KWF8oMoy91LRm7oUIXDzfDn93yDHU96TC1jGdrE1kKBfkugt3Rhgo6soBRlH\nRfQ/pHlSGnk48d3PzqU6HxaK69u4gxCGV1ILrCVhMEf4XrkSsF4LoExKSlBSoaOn\nOMIrnPoFBW4ingQfsXv7u5U+/YUZTWPAeN7A40qZOJ7WpmWM+Ji04tQqg+pGS1xe\nHqqBeOEb0K5FrkhFL2fnnKA2kJ+4jxXBx4NNIzyz4QKBgQD7D9ikqTDHkv3lT/bb\n50914bMQi8Z4QwVvSP/68+xTmOEJaCInmUJe2pRgeqXWbVEIqj0s08fpRXw09ACO\nqPazfIMTR7jIJKlUvcXtk3ZvB9Nb2GX8XXIFJp8FXVH0JmMEP8c1TUDk2q9zeNC/\nZLDXo8QfMNXJc2mYo/jZNERMTwKBgQDZgOarUz9ZZTFvstTZ/ivWQ4Nxd5aXjKIK\nlCwwo+Al+4ixBzHWfEj8iXHcUoL8ERDFSiNN8p/2ZpwXxIRYKflK+g++wka77nGn\nDgwPYUUtyEao2+bWhfqw8GL0hHgnhIKkMikfDXhOqt+/m/Q2tqbIoFAcNlmcPBQc\nh90YgStVHQKBgBogWAcqpCzgmxNV8vaHZ7l4t02tfgXd0571Fc5ju+AnNKPp9kPw\nqvt7+5zepotd7OTd8mfL0i3wUTChg71Uz/d1qZ5EBHKvff+XkBVdFyIOymvwZQyS\nHN90WXARegnSRNOYX36of2xRZZi6pd6E9/I41Jv6VQUVwZNk3Oydh835AoGAImp1\nFXLsuTZ75hLD/2JqiVLRf6jOmVhVY5siiufDVf9BF9HtnuS3n84XyCb+Nuh0YONk\nRrc3fIOr+07LKjAqFCURTLvs+Vu3fBmK6vwXODFSjPGOyy8UBd9jqRE0+fvLuDN/\nsjwtZzU+hlElCWtJZMGJK42mDEStYf5Vi8UUmDkCgYBKM9MXkit3a/CX3+4BMxXf\nuQkasd81/1SlL7ni9orEHBcfIuGsQ+1pGWcAU3vnwW4rNZ3v6kq0BZmWMZQ6AdRl\naZPCBjB5XmQH+tuRfkDbkzUMpFhxRPfkkSoq2gd2mA+7lZMsX05sn9i8tIYpDwH+\n1jn10KGlnlDtQU24Q4kQNw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "collegejunction@collegejunction-bce6c.iam.gserviceaccount.com",
+  "client_id": "108807808673229372339",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/collegejunction%40collegejunction-bce6c.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
