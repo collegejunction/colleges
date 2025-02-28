@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+// Import images
 import notes from "./img/notes (1).png";
 import college from "./img/user.png";
 import photo from "./img/play.png";
@@ -14,11 +15,12 @@ import insta from "./img/instagram.png";
 import linkdeIn from "./img/linkedin.png";
 import insta_white from "./img/insta_white.png";
 import facebook from "./img/facebook.png";
-import Form from "next/form";
-// Team Photo
+
+// Team Photos
 import aaryan from "./img/team/aaryan.png";
 import satyam from "./img/team/satyam.png";
-import shivam from "./img/team/shivam (1).png"
+import shivam from "./img/team/shivam (1).png";
+
 // Navbar import
 import Navbar from "./components/Navbar/page";
 
@@ -33,49 +35,43 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (isMounted) {
-      // GSAP Animations
-      gsap.from(".hero-content h1", { opacity: 0, y: -50, duration: 1, ease: "power2.out" });
-      gsap.from(".hero-content p", { opacity: 0, y: 50, duration: 1, delay: 0.3, ease: "power2.out" });
-      gsap.from(".btn", { opacity: 0, scale: 0.5, duration: 0.5, delay: 0.6, ease: "back.out(1.7)" });
+    if (!isMounted) return;
 
-      gsap.utils.toArray<HTMLElement>(".feature div").forEach((box, i) => {
-        gsap.from(box, {
-          opacity: 0,
-          y: 100,
-          duration: 1,
-          delay: i * 0.3,
-          scrollTrigger: {
-            trigger: box as HTMLElement,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        });
+    // GSAP Animations
+    gsap.from(".hero-content h1", { opacity: 0, y: -50, duration: 1, ease: "power2.out" });
+    gsap.from(".hero-content p", { opacity: 0, y: 50, duration: 1, delay: 0.3, ease: "power2.out" });
+    gsap.from(".btn", { opacity: 0, scale: 0.5, duration: 0.5, delay: 0.6, ease: "back.out(1.7)" });
+
+    document.querySelectorAll<HTMLElement>(".feature div").forEach((box, i) => {
+      gsap.from(box, {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        delay: i * 0.3,
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
       });
+    });
 
-      // Navbar scroll effect
-      const handleScroll = () => {
-        if (window.scrollY > document.querySelector(".hero")?.clientHeight! - 100) {
-          setScrolled(true);
-        } else {
-          setScrolled(false);
-        }
-      };
+    // Navbar scroll effect
+    const handleScroll = () => {
+      const heroHeight = document.querySelector(".hero")?.clientHeight || 0;
+      setScrolled(window.scrollY > heroHeight - 100);
+    };
 
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isMounted]);
 
-  if (!isMounted) {
-    return null; // Prevent SSR mismatch
-  }
-  // const router = useRouter();
+  if (!isMounted) return null; // Prevent SSR mismatch
+
   return (
     <div className="container">
       <div className="heros">
-        {/* Navbar */}
-        <Navbar/>
+        <Navbar scrolled={scrolled} />
 
         {/* Hero Section */}
         <section className="hero">
@@ -94,14 +90,14 @@ export default function Home() {
             <Image src={notes} alt="Educational Notes" />
           </center>
           <Link className="link" href="/components/notes"><h3>Educational Notes</h3></Link>
-          <p>Access detailed notes and enhance your learning experience today! </p>
+          <p>Access detailed notes and enhance your learning experience today!</p>
         </div>
         <div className="secondbox">
           <center>
             <Image src={college} alt="College Finder" />
           </center>
           <Link className="link" href="/components/college"><h3>College Finder</h3></Link>
-          <p>Leverage our AI to find the best colleges and courses tailored to you. </p>
+          <p>Leverage our AI to find the best colleges and courses tailored to you.</p>
         </div>
         <div className="thirdbox">
           <center>
@@ -130,93 +126,59 @@ export default function Home() {
           </ul>
         </div>
         <div className="right_unlock">
-          <Image src={unlock} alt="Hero Image" />
+          <Image src={unlock} alt="Unlock Learning Potential" />
         </div>
       </div>
 
-        <center>
+      {/* Team Section */}
+      <center>
         <h2>Our Team</h2>
         <p>We're a passionate team dedicated to enhancing student learning experiences through innovative resources.</p>
-        </center>
+      </center>
       <div className="ourteam">
-        <div className="team">
-          <center>
-          <Image src={aaryan} alt="Hero Image" />
-          </center>
-          <div className="info">
-            <div className="info_left">
-              <h3>Aaryan Pandey</h3>
-              <p>Frontend and Backend Developer</p>
-            </div>
-            <div className="info_right">
-            <a target="_blank" href="https://www.instagram.com/code_with_aaryan/"><Image src={insta} alt="Hero Image" /></a>
-            <a target="_blank" href="https://www.linkedin.com/in/aaryan-pandey-%F0%9F%98%8E-107a01344/"><Image src={linkdeIn} alt="Hero Image" /></a>
-            </div>
-          </div>
-        </div>
-        <div className="team">
-          <center>
-          <Image src={satyam} alt="Hero Image" />
-          </center>
-          <div className="info">
-            <div className="info_left">
-              <h3>Satyam Singh</h3>
-              <p>ML & Data Searching</p>
-            </div>
-            <div className="info_right">
-            <a target="_blank" href="https://www.instagram.com/code_with_aaryan/"><Image src={insta} alt="Hero Image" /></a>
-            <a target="_blank" href="https://www.linkedin.com/in/aaryan-pandey-%F0%9F%98%8E-107a01344/"><Image src={linkdeIn} alt="Hero Image" /></a>
+        {[{ name: "Aaryan Pandey", role: "Frontend and Backend Developer", img: aaryan },
+          { name: "Satyam Singh", role: "ML & Data Searching", img: satyam },
+          { name: "Shivam Kumar", role: "AI & ML Solutions", img: shivam }].map((member, i) => (
+          <div className="team" key={i}>
+            <center>
+              <Image src={member.img} alt={member.name} />
+            </center>
+            <div className="info">
+              <div className="info_left">
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </div>
+              <div className="info_right">
+                <a target="_blank" href="https://www.instagram.com/code_with_aaryan/">
+                  <Image src={insta} alt="Instagram" />
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/aaryan-pandey/">
+                  <Image src={linkdeIn} alt="LinkedIn" />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="team">
-          <center>
-          <Image src={shivam} alt="Hero Image" />
-          </center>
-          <div className="info">
-            <div className="info_left">
-              <h3>Shivam Kumar</h3>
-              <p>AI&ML Solutions</p>
-            </div>
-            <div className="info_right">
-            <a target="_blank" href="https://www.instagram.com/code_with_aaryan/"><Image src={insta} alt="Hero Image" /></a>
-            <a target="_blank" href="https://www.linkedin.com/in/aaryan-pandey-%F0%9F%98%8E-107a01344/"><Image src={linkdeIn} alt="Hero Image" /></a>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <div className="footerr">
-
-      <div className="today">
-        <h1>Join College Junction Today!</h1>
-        <p>Explore our extensive collection of student notes and college listings powered by AI.</p>
-        <div className="subscription">
-            <input type="email" placeholder="Enter your email"/>
-            <button>Subscribe</button>
-        </div>
-    </div>
-    
-    <footer>
+      {/* Footer Section */}
+      <footer>
         <div className="footer-content">
-            <h2>College Junction</h2>
-            <p>Join College Junction to access comprehensive study notes and a complete list of colleges tailored for your academic journey. Empowering students with innovative AI features for personalized learning!</p>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Courses</a>
-                <a href="#">Instructors</a>
-            </nav>
-            <div className="social-icons">
-                <a href="#"><Image src={insta_white} alt="Hero Image" /></a>
-                <a href="#"><Image src={facebook} alt="Hero Image" /></a>
-            </div>
-            <p>&copy; 2025 collegejunction.com. All rights reserved.</p>
+          <h2>College Junction</h2>
+          <p>Join College Junction to access comprehensive study notes and a complete list of colleges tailored for your academic journey.</p>
+          <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Instructors</a>
+          </nav>
+          <div className="social-icons">
+            <a href="#"><Image src={insta_white} alt="Instagram" /></a>
+            <a href="#"><Image src={facebook} alt="Facebook" /></a>
+          </div>
+          <p>&copy; 2025 collegejunction.com. All rights reserved.</p>
         </div>
-    </footer>
-      </div>
-
-
+      </footer>
     </div>
   );
 }
