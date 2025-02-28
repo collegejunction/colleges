@@ -7,22 +7,22 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 // Import images
-import notes from "@/img/notes.png";
-import college from "@/img/user.png";
-import photo from "@/img/play.png";
-import unlock from "@/img/unlock.png";
-import insta from "@/img/instagram.png";
-import linkedin from "@/img/linkedin.png";
-import instaWhite from "@/img/insta_white.png";
-import facebook from "@/img/facebook.png";
+import notes from "./img/notes.png";
+import college from "./img/user.png";
+import photo from "./img/play.png";
+import unlock from "./img/unlock.png";
+import insta from "./img/instagram.png";
+import linkedin from "./img/linkedin.png";
+import instaWhite from "./img/insta_white.png";
+import facebook from "./img/facebook.png";
 
 // Team Photos
-import aaryan from "@/img/team/aaryan.png";
-import satyam from "@/img/team/satyam.png";
-import shivam from "@/img/team/shivam.png";
+import aaryan from "./img/team/aaryan.png";
+import satyam from "./img/team/satyam.png";
+import shivam from "./img/team/shivam.png";
 
 // Navbar import
-import Navbar from "@/components/Navbar/page";
+import Navbar from "./components/Navbar/page";
 
 gsap.registerPlugin(ScrollTrigger);
 
