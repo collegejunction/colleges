@@ -8,11 +8,11 @@ export async function GET() {
     const colleges = await db.collection("colleges").find({}).toArray();
 
     return NextResponse.json(colleges);
-  } catch (_) { // ✅ ESLint will ignore this
-    console.error("Error fetching colleges");
+  } catch (error) {
+    console.error("Error fetching colleges:", error); // ✅ Now `error` is used
 
     return NextResponse.json(
-      { message: "Internal Server Error" },
+      { message: "Internal Server Error", details: error.message }, // ✅ Use `error.message`
       { status: 500 }
     );
   }
