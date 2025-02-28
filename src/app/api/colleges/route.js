@@ -1,6 +1,3 @@
-import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
-
 export async function GET() {
   try {
     const client = await clientPromise;
@@ -9,7 +6,8 @@ export async function GET() {
 
     return NextResponse.json({ success: true, data: colleges }, { status: 200 });
   } catch (error) {
-    console.error("Error fetching colleges:", error); // ✅ Logs error for debugging
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    console.error("Error fetching colleges:", error);
 
     return NextResponse.json(
       { success: false, message: "Internal Server Error" },
