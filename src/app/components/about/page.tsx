@@ -24,7 +24,7 @@ export default function Login() {
           </div>
           <div className="aboutmiddle">
             <div className="aboutleft">
-              <Image src={aboutimage}/>
+              <Image src={aboutimage} alt="Hero Image"/>
             </div>
             <div className="aboutright">
               <h1>Our online learning platform Top Skills You Need To Know</h1>
