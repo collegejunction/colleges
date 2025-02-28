@@ -7,7 +7,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 // Import images
-import notes from "./img/notes.png";
+import notes from "./img/notes (1).png";
 import college from "./img/user.png";
 import photo from "./img/play.png";
 import unlock from "./img/unlock.png";
@@ -19,7 +19,7 @@ import facebook from "./img/facebook.png";
 // Team Photos
 import aaryan from "./img/team/aaryan.png";
 import satyam from "./img/team/satyam.png";
-import shivam from "./img/team/shivam.png";
+import shivam from "./img/team/shivam (1).png";
 
 // Navbar import
 import Navbar from "./components/Navbar/page";
