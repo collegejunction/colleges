@@ -8,11 +8,11 @@ export async function GET() {
     const colleges = await db.collection("colleges").find({}).toArray();
 
     return NextResponse.json(colleges);
-  } catch (error) {
-    console.error("Error fetching colleges:", error); // ✅ Now `error` is used
+  } catch (_error) { // 👈 Renamed `error` to `_error`
+    console.error("Error fetching colleges:", _error); 
 
     return NextResponse.json(
-      { message: "Internal Server Error", details: error.message }, // ✅ Use `error.message`
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }
