@@ -99,7 +99,7 @@ export default function Home() {
       <div className="empower">
         <h5>Diverse Resources</h5>
         <h1>Empowering Students with Comprehensive Educational Resources</h1>
-        <p>College Junction offers comprehensive notes and resources tailored to aid every student's academic journey.</p>
+        <p>College Junction offers comprehensive notes and resources tailored to aid every student&#39;s academic journey.</p>
       </div>
 
       {/* Unlock Section */}
@@ -121,7 +121,7 @@ export default function Home() {
       {/* Team Section */}
       <center>
         <h2>Our Team</h2>
-        <p>We're a passionate team dedicated to enhancing student learning experiences through innovative resources.</p>
+        <p>We&#39;re a passionate team dedicated to enhancing student learning experiences through innovative resources.</p>
       </center>
       <div className="ourteam">
         {[
