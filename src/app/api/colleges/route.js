@@ -7,11 +7,12 @@ export async function GET() {
     const db = client.db("collegejunction");
     const colleges = await db.collection("colleges").find({}).toArray();
 
-    return NextResponse.json(colleges);
+    return NextResponse.json({ success: true, data: colleges }, { status: 200 });
   } catch (error) {
-    console.error("Error fetching colleges:", error); // ✅ Logs error
+    console.error("Error fetching colleges:", error); // ✅ Logs error for debugging
+
     return NextResponse.json(
-      { message: "Internal Server Error", error: error.message }, 
+      { success: false, message: "Internal Server Error" },
       { status: 500 }
     );
   }
