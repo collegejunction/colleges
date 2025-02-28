@@ -1,17 +1,18 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb"; // ✅ Ensure correct import
+import clientPromise from "@/lib/mongodb";
 
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db("collegejunction"); // ✅ Your actual DB name
+    const db = client.db("collegejunction");
     const colleges = await db.collection("colleges").find({}).toArray();
 
-    console.log("Colleges Data:", colleges); // ✅ Debug fetched data
-
-    return NextResponse.json({ success: true, data: colleges }); // ✅ Structured response
+    return NextResponse.json(colleges);
   } catch (error) {
-    console.error("Error fetching colleges:", error.message); // ✅ Ensure error is used properly
-    return NextResponse.json({ success: false, error: "Internal Server Error" }, { status: 500 });
+    console.error("Error fetching colleges:", error); // ✅ Logs error
+    return NextResponse.json(
+      { message: "Internal Server Error", error: error.message }, 
+      { status: 500 }
+    );
   }
 }
