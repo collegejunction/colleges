@@ -1,19 +1,27 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+import { MongoClient, ObjectId } from "mongodb";
+import clientPromise from "../../../../lib/mongodb";
 
-export async function GET() {
+export async function GET(req, { params }) {
   try {
     const client = await clientPromise;
     const db = client.db("collegejunction");
-    const colleges = await db.collection("colleges").find({}).toArray();
 
-    return NextResponse.json(colleges);
+    if (!ObjectId.isValid(params.id)) {
+      return NextResponse.json({ error: "Invalid College ID" }, { status: 400 });
+    }
+
+    const college = await db.collection("colleges").findOne({
+      _id: new ObjectId(params.id),
+    });
+
+    if (!college) {
+      return NextResponse.json({ error: "❌ College not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(college);
   } catch {
-    console.error("Error fetching colleges"); // Removed `error` to prevent ESLint issue
-
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    console.error("Error fetching college");
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
